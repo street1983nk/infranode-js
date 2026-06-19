@@ -1,0 +1,67 @@
+{
+  "name": "infranode-sdk",
+  "version": "0.1.0",
+  "description": "Keyless TypeScript client for the InfraNode open-data API (84 German cities), with a Vercel AI SDK tool.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "InfraNode <admin@infranode.dev>",
+  "homepage": "https://infranode.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/street1983nk/infranode-js.git"
+  },
+  "keywords": [
+    "infranode",
+    "open-data",
+    "germany",
+    "api",
+    "weather",
+    "air-quality",
+    "vercel-ai-sdk",
+    "ai",
+    "agent",
+    "mcp",
+    "keyless"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./ai": {
+      "types": "./dist/ai.d.ts",
+      "import": "./dist/ai.js",
+      "require": "./dist/ai.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "ai": ">=3",
+    "zod": ">=3"
+  },
+  "peerDependenciesMeta": {
+    "ai": { "optional": true },
+    "zod": { "optional": true }
+  },
+  "devDependencies": {
+    "ai": "^4.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0",
+    "zod": "^3.24.0"
+  }
+}
