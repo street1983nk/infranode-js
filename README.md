@@ -1,18 +1,20 @@
+Deutsch | [English](https://github.com/street1983nk/infranode-js/blob/main/README.en.md)
+
 # infranode-sdk
 
-Keyless TypeScript client for the [InfraNode](https://infranode.dev) open-data
-API, with a [Vercel AI SDK](https://sdk.vercel.ai) tool.
+Schlüsselloser TypeScript-Client für die [InfraNode](https://infranode.dev) Open-Data-API,
+mit einem Tool für das [Vercel AI SDK](https://sdk.vercel.ai).
 
-InfraNode unifies open public data for **84 German cities** (weather, air quality,
-electricity prices, land values, public transit, EV charging, demographics and
-more) behind one JSON envelope. **No API key, no signup.** Works in Node 18+ and
-the browser.
+InfraNode bündelt offene Verwaltungsdaten für **84 deutsche Städte** (Wetter, Luftqualität,
+Strompreise, Bodenrichtwerte, ÖPNV, E-Ladesäulen, Demografie und mehr) hinter einem
+einheitlichen JSON-Envelope. **Kein API-Key, keine Registrierung.** Läuft in Node 18+ und
+im Browser.
 
 ```bash
 npm install infranode-sdk
 ```
 
-## Quickstart
+## Schnellstart
 
 ```ts
 import { InfraNode } from "infranode-sdk";
@@ -28,10 +30,10 @@ const fuel = await api.record("hamburg", "fuel-prices");
 const cities = await api.cities(); // all 84 cities
 ```
 
-Every record carries its own `attribution` (source + license URL). The open-data
-licenses require attribution, so display it to your users.
+Jeder Record trägt seine eigene `attribution` (Quelle plus Lizenz-URL). Die Open-Data-Lizenzen
+verlangen eine Quellenangabe, zeige sie deshalb deinen Nutzern an.
 
-Errors throw `InfraNodeError`:
+Fehler werfen einen `InfraNodeError`:
 
 ```ts
 import { InfraNode, InfraNodeError } from "infranode-sdk";
@@ -43,7 +45,7 @@ try {
 }
 ```
 
-## Use it as an AI agent tool (Vercel AI SDK)
+## Als KI-Agenten-Tool nutzen (Vercel AI SDK)
 
 ```bash
 npm install infranode-sdk ai zod
@@ -62,26 +64,26 @@ const { text } = await generateText({
 });
 ```
 
-`infranodeTools()` returns `infranode_get_city_data(city, dataset)` and
-`infranode_list_cities()`. The tool description lists valid datasets so the model
-picks the right one. Prefer the official
-[InfraNode MCP server](https://infranode.dev) (`https://mcp.infranode.dev/mcp`)
-when your runtime speaks MCP; this tool is the lightweight, MCP-free alternative.
+`infranodeTools()` liefert `infranode_get_city_data(city, dataset)` und
+`infranode_list_cities()`. Die Tool-Beschreibung listet alle gültigen Datasets auf, damit
+das Modell das richtige wählt. Wenn deine Laufzeitumgebung MCP spricht, ist der offizielle
+[InfraNode-MCP-Server](https://infranode.dev) (`https://mcp.infranode.dev/mcp`) die bessere
+Wahl; dieses Tool ist die leichtgewichtige Alternative ohne MCP.
 
 ## Datasets
 
 `weather`, `air`, `power-price`, `power-load`, `charging`, `sharing`,
 `fuel-prices`, `pollen-uv`, `water-level`, `transit`, `station-departures`,
-`demographics`, `land-values`, `election`, `tourism`, `accidents`, and more. The
-full route list is at `https://infranode.dev/api/v1/openapi.yaml`.
+`demographics`, `land-values`, `election`, `tourism`, `accidents` und weitere. Die
+vollständige Routenliste steht unter `https://infranode.dev/api/v1/openapi.yaml`.
 
-## About InfraNode
+## Über InfraNode
 
-- API: https://infranode.dev (keyless, rate limit 300 req/min/IP)
-- MCP server: `https://mcp.infranode.dev/mcp`
-- API source (Apache-2.0): https://github.com/street1983nk/infranode
+- API: https://infranode.dev (schlüssellos, Rate-Limit 300 req/min/IP)
+- MCP-Server: `https://mcp.infranode.dev/mcp`
+- API-Quellcode (Apache-2.0): https://github.com/street1983nk/infranode
 
-## License
+## Lizenz
 
-Apache-2.0. The data remains under the licenses of the respective sources,
-surfaced via each record's `attribution` field.
+Apache-2.0. Die Daten bleiben unter den Lizenzen der jeweiligen Quellen und sind über
+das Feld `attribution` jedes Records ausgewiesen.
