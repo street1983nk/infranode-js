@@ -40,9 +40,9 @@ Fehler werfen einen `InfraNodeError`:
 import { InfraNode, InfraNodeError } from "infranode-sdk";
 
 try {
-  await new InfraNode().record("essen", "wetter"); // falscher Datenart-Name -> 404
+  const rec = await new InfraNode().record("essen", "weather");
 } catch (e) {
-  if (e instanceof InfraNodeError) console.log(e.code, e.message, e.hint); // hint: Meintest du 'weather'?
+  if (e instanceof InfraNodeError) console.log(e.code, e.message, e.hint); // z. B. not_found oder upstream_unavailable
 }
 ```
 

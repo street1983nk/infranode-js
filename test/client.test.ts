@@ -52,7 +52,7 @@ describe("InfraNode client", () => {
 
   it("throws InfraNodeError on an error envelope", async () => {
     const api = new InfraNode({ fetch: mockFetch(ERROR, false) });
-    await expect(api.record("essen", "wetter")).rejects.toMatchObject({
+    await expect(api.weather("essen")).rejects.toMatchObject({
       name: "InfraNodeError",
       code: "not_found",
       hint: "Pfad pruefen",
