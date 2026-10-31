@@ -52,7 +52,7 @@ describe("InfraNode client", () => {
 
   it("throws InfraNodeError on an error envelope", async () => {
     const api = new InfraNode({ fetch: mockFetch(ERROR, false) });
-    await expect(api.weather("husum")).rejects.toMatchObject({
+    await expect(api.weather("esen")).rejects.toMatchObject({
       name: "InfraNodeError",
       code: "not_found",
       hint: "Pfad pruefen",
@@ -85,7 +85,7 @@ describe("Vercel AI SDK tools", () => {
   it("returns a structured error from the tool instead of throwing", async () => {
     const tools = infranodeTools({ fetch: mockFetch(ERROR, false) });
     const out = (await tools.infranode_get_city_data.execute!(
-      { city: "husum", dataset: "weather" },
+      { city: "esen", dataset: "weather" },
       { toolCallId: "t2", messages: [] },
     )) as unknown as { error: string };
     expect(out.error).toBe("not_found");

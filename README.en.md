@@ -39,9 +39,9 @@ Errors throw `InfraNodeError`:
 import { InfraNode, InfraNodeError } from "infranode-sdk";
 
 try {
-  await new InfraNode().record("husum", "weather"); // Husum is not one of the 84 cities -> 404
+  await new InfraNode().record("esen", "weather"); // typo -> 404
 } catch (e) {
-  if (e instanceof InfraNodeError) console.log(e.code, e.message);
+  if (e instanceof InfraNodeError) console.log(e.code, e.message, e.hint); // hint: Meintest du 'essen'?
 }
 ```
 
