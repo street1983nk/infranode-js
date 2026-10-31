@@ -27,6 +27,7 @@ console.log("Source:", rec.attribution.text); // always show attribution
 
 // Any endpoint by name
 const fuel = await api.record("hamburg", "fuel-prices");
+const muc = await api.record("München", "weather"); // any spelling: München, muenchen, munich
 const cities = await api.cities(); // all 84 cities
 ```
 
