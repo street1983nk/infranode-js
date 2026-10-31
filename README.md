@@ -39,7 +39,7 @@ Fehler werfen einen `InfraNodeError`:
 import { InfraNode, InfraNodeError } from "infranode-sdk";
 
 try {
-  await new InfraNode().record("atlantis", "weather");
+  await new InfraNode().record("husum", "weather"); // Husum gehört nicht zu den 84 Städten -> 404
 } catch (e) {
   if (e instanceof InfraNodeError) console.log(e.code, e.message);
 }
